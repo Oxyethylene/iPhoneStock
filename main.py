@@ -51,9 +51,10 @@ def main():
     url = STOCK_TYPE_TEMPLATE.format(CODE)
     try:
         update_stock(url, 5)
-    except Exception:
+    except Exception as e:
         os.system('say "got unexpected exception"')
-        print('got unexpected exception')
+        print(f'{time.asctime()}: got unexpected exception')
+        print(f'{time.asctime()}: {e.with_traceback()}')
 
 
 if __name__ == '__main__':
